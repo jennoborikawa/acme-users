@@ -1,0 +1,44 @@
+{% extends './layout.html' %}
+
+{% block content %}
+
+<!-- New Employee Form -->
+	<form method='POST' action='/departments/{{departmentId}}/employees'>
+		<div class=well>
+			<input name='user' class='form-control' placeholder='employee name'></input>
+			<br>
+			<button class='btn btn-primary'>Save Employee</button> 
+		</div>
+	</form>
+
+
+	<!-- Button: Make this the default department --> 
+	<div class='well'>This is the default department</div>
+
+<!-- Department Pills --> 
+	<ul>
+		<li></li> 
+	</ul>
+
+<!-- Employee Name Table -->
+	<table class='table table-hover'>
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Name1</td>
+				<td>Actions1</td>
+			</tr>
+		<tbody>
+	<table>
+
+
+
+{% endblock %} 
+
+
+
