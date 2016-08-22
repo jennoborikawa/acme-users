@@ -12,8 +12,10 @@ router.get('/:departmentId', function(req, res, next){
 		}
 	})
 	.then(function(department){
+		console.log(Departments.getDepartments()); 
 		res.render('departments', {
-			title: 'Acme Department: ' + department.name
+			title: 'Acme Department: ' + department.name,
+			departments: Departments.getDepartments
 		}); 
 	})
 })
@@ -33,12 +35,22 @@ router.post('/', function(req, res, next){
 router.post('/:departmentId/employees', function(req, res, next){
 	User.create({
 		name: req.body.user, 
-		departmentId: req.params.departmentId
+		departmentId: req.params.departmentId*1
 	})
 	.then(function(newEmployee){
 		res.redirect('/departments/' + newEmployee.departmentId); 
 	})
 	.catch(next); 
 }); 
+
+router.delete('/departments/:departmentId/employees/:employeeId', function(req, res, next){
+
+})
+
+router.put('/department/:departmentId', function(){
+
+})
+
+
 
 

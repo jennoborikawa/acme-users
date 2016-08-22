@@ -16,8 +16,10 @@
 	<div class='well'>This is the default department</div>
 
 <!-- Department Pills --> 
-	<ul>
-		<li></li> 
+	<ul class='nav nav-pills'>
+		{% for department in departments %}
+			<li><a href='/departments/' + department.name> {{ department.name }} </a></li>
+		{% endfor %}
 	</ul>
 
 <!-- Employee Name Table -->

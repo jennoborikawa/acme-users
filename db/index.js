@@ -36,6 +36,13 @@ var Departments = db.define('departments', {
 					isDefault: true
 				}
 			})
+		}, 
+		getDepartments: function(){
+			this.findAll({})
+			.then(function(departments){
+				return departments.dataValues
+			})
+
 		}
 	}
 
