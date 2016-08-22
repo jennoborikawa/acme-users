@@ -26,6 +26,9 @@ router.post('/', function(req, res, next){
 		name: req.body.dept
 	})
 	.then(function(newDeptRow){
+		
+	})
+	.then(function(newDeptRow){
 		res.redirect('/departments/' + newDeptRow.id); 
 	})
 	.catch(next); 

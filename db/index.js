@@ -9,15 +9,6 @@ var db = new Sequelize('postgres://localhost:5432/acme_users_db', {
 //     console.log('here');
 // });
 
-var Users = db.define('users', {
-	name: {
-		type: Sequelize.STRING, 
-		allowNull: false
-	}
-
-});
-
-
 var Departments = db.define('departments', {
 	name: {
 		type: Sequelize.STRING
@@ -44,8 +35,25 @@ var Departments = db.define('departments', {
 			})
 
 		}
+	}, 
+	instanceMethods: {
+		setDefault: function(){
+			
+			if(this.){
+
+			}
+		}
 	}
 
+
+});
+
+
+var Users = db.define('users', {
+	name: {
+		type: Sequelize.STRING, 
+		allowNull: false
+	}
 
 });
 
