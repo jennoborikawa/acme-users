@@ -3,7 +3,7 @@
 {% block content %}
 
 <!-- New Employee Form -->
-	<form method='POST' action='/departments/{{departmentId}}/employees'>
+	<form method='POST' action='/departments/{{department.id}}/employees'>
 		<div class=well>
 			<input name='user' class='form-control' placeholder='employee name'></input>
 			<br>
@@ -22,7 +22,7 @@
 		{% endfor %}
 	</ul>
 
-<!-- Employee Name Table -->
+<!-- Employee Name/Action Table -->
 	<table class='table table-hover'>
 		<thead>
 			<tr>

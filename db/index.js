@@ -17,9 +17,28 @@ var Departments = db.define('departments', {
 		type: Sequelize.BOOLEAN, 
 		defaultValue: false
 	}
+}
+, 
+{
+	hooks: {
+		beforeValidate: function(dept){
+			//findOne where the isDefault === true. If none, then set current to true
+			// console.log(dept);
+			return Departments.findOne({
+				where: {
+					isDefault: true
+				}
+			})
+			.then(function(defaultDept){
+				if(defaultDept === null){
+					// console.log(dept);
+					dept.isDefault = true; 
+				}
+			})
 
+		}
+	}, 
 
-}, {
 	classMethods: {
 		getDefault: function(){
 			return Departments.findOne({
@@ -28,6 +47,14 @@ var Departments = db.define('departments', {
 				}
 			})
 		}, 
+		findCurrentDept: function(departmentId){
+			return Departments.findOne({
+				where: {
+					id: departmentId
+				}
+			})
+		}, 
+
 		getDepartments: function(){
 			this.findAll({})
 			.then(function(departments){
@@ -35,16 +62,7 @@ var Departments = db.define('departments', {
 			})
 
 		}
-	}, 
-	instanceMethods: {
-		setDefault: function(){
-			
-			if(this.){
-
-			}
-		}
 	}
-
 
 });
 
@@ -56,7 +74,6 @@ var Users = db.define('users', {
 	}
 
 });
-
 
 Users.belongsTo(Departments); 
 

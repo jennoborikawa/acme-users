@@ -6,6 +6,7 @@ var path = require('path');
 var departmentRouter = require('./routes/department'); 
 var bodyParser = require('body-parser'); 
 
+
 var models = require('./db'); 
 var Users = models.Users; 
 var Departments = models.Departments; 
@@ -22,7 +23,6 @@ module.exports = app;
 // app.use(morgan('dev')); 
 app.use(express.static(path.join(__dirname, 'node_modules'))); 
 app.use(bodyParser.urlencoded({extended: true})); 
-
 app.use('/departments', departmentRouter); 
 
 app.get('/', function(req, res, next){
@@ -30,6 +30,8 @@ app.get('/', function(req, res, next){
 		title: 'Acme Home'
 	}); 
 });
+
+
 
 
 

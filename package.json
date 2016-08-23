@@ -19,14 +19,17 @@
   "homepage": "https://github.com/jennoborikawa/acme-users#readme",
   "devDependencies": {
     "morgan": "^1.7.0",
-    "nodemon": "^1.10.2"
+    "nodemon": "^1.10.2",
+    "path": "^0.12.7"
   },
   "dependencies": {
+    "bluebird": "^3.4.1",
     "body-parser": "^1.15.2",
     "bootstrap": "^3.3.7",
     "express": "^4.14.0",
     "method-override": "^2.3.6",
     "pg": "^6.1.0",
+    "sequelize": "^3.24.1",
     "swig": "^1.4.2"
   }
 }
