@@ -1,9 +1,7 @@
 var express = require('express'); 
-var morgan = require('morgan'); 
 var swig = require('swig'); 
 swig.setDefaults = ({cache: false}); 
 var path = require('path'); 
-var departmentRouter = require('./routes/department'); 
 var bodyParser = require('body-parser'); 
 
 
@@ -23,16 +21,17 @@ module.exports = app;
 // app.use(morgan('dev')); 
 app.use(express.static(path.join(__dirname, 'node_modules'))); 
 app.use(bodyParser.urlencoded({extended: true})); 
-app.use('/departments', departmentRouter); 
+app.use('/departments', require('./routes/department')); 
 
 app.get('/', function(req, res, next){
-	res.render('index', {
-		title: 'Acme Home'
-	}); 
+  Departments.getDefault()
+    .then(function(department){
+      res.render('index', {
+        title: 'Acme Home',
+        defaultDepartment: department
+      }); 
+    });
 });
-
-
-
 
 
 
